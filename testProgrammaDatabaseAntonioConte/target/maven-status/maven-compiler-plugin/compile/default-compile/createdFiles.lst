@@ -1,0 +1,14 @@
+com\mycompany\testprogrammadatabase\RecuperoLibreria.class
+com\mycompany\testprogrammadatabase\ConnectDB.class
+com\mycompany\testprogrammadatabase\Libreria.class
+com\mycompany\testprogrammadatabase\LibreriaServlet.class
+com\mycompany\testprogrammadatabase\LibroDAO.class
+com\mycompany\testprogrammadatabase\AutoriDAO.class
+com\mycompany\testprogrammadatabase\EditServlet.class
+com\mycompany\testprogrammadatabase\Autori.class
+com\mycompany\testprogrammadatabase\AddBook.class
+com\mycompany\testprogrammadatabase\Config.class
+com\mycompany\testprogrammadatabase\AutoriServlet.class
+com\mycompany\testprogrammadatabase\AutoriDAODB.class
+com\mycompany\testprogrammadatabase\DeleteBookServlet.class
+com\mycompany\testprogrammadatabase\LibroDAODB.class
