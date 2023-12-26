@@ -9,11 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Pagina Home</title>
     </head>
     <body>
         <h1>Hello World!</h1>
-        <a href="libreria">Libreria</a>
-        <a href="autori">Autori</a>
+        <a href="libreria">Libreria</a><br>
+        <a href="autori">Autori</a><br>
+        <a href="libri">Libri</a>
     </body>
 </html>
