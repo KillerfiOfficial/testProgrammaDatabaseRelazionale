@@ -33,21 +33,30 @@ public class EditServletAutori extends HttpServlet {
         try (Connection conn = ConnectDB.getConnection()) {
             conn.setAutoCommit(false); 
 
-            String idAutoreStr = request.getParameter("autoreId");
+            String idOld = request.getParameter("autoreIdOld");
+            String idNew = request.getParameter("autoreIdNew");
+            
             String nome = request.getParameter("newNome");
             String cognome = request.getParameter("newCognome");
             String nazionalita = request.getParameter("newNazionalita");
             String dataNascitaStr = request.getParameter("newDataNascita");
 
-            int idAutore = Integer.parseInt(idAutoreStr);
+            int idAutoreOld = Integer.parseInt(idOld);
+            int idAutoreNew = -1;
+            //Controllo se viene passato questo parametro o meno
+            if (! idNew.trim().isEmpty()) {
+                idAutoreNew = Integer.parseInt(idNew);
+            }
+            
             Date dataNascita = Date.valueOf(dataNascitaStr);
 
             logger.info("Autore prima dell'aggiornamento: " + autoriDAODB.trovaPerNomeAutore(nome));
 
-            autoriDAODB.editAutore(conn, idAutore, nome, cognome, nazionalita, dataNascita);
+            autoriDAODB.editAutore(conn, idAutoreOld, idAutoreNew, nome, cognome, nazionalita, dataNascita);
 
             logger.info("Modifica dell'autore in corso...");
-            logger.info("ID Autore: " + idAutore);
+            logger.info("ID AutoreOld: " + idAutoreOld);
+            logger.info("ID AutoreNew: " + idAutoreNew);
             logger.info("Nuovo Nome: " + nome);
             logger.info("Nuovo Cognome: " + cognome);
             logger.info("Nuova Nazionalità: " + nazionalita);
