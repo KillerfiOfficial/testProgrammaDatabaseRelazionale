@@ -14,7 +14,7 @@ public interface AutoriDAO {
 
     void addAutore(Connection conn, int idAutore, String Nome, String Cognome, String Nazionalita, Date DatadiNascita);
 
-    void editAutore(Connection conn, int idAutore, String Nome, String Cognome, String Nazionalita, Date DatadiNascita);
+    void editAutore(Connection conn, int idAutoreOld, int idAutoreNew, String Nome, String Cognome, String Nazionalita, Date DatadiNascita);
     
     List<Autori> trovaPerNomeAutore(String nome);
 
