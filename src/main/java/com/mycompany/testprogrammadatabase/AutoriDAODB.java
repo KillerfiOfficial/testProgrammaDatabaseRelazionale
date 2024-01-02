@@ -109,15 +109,25 @@ public class AutoriDAODB implements AutoriDAO {
     }
 
     @Override
-    public void editAutore(Connection conn, int idAutore, String Nome, String Cognome, String Nazionalita, Date DatadiNascita) {
-        String updateQuery = "UPDATE autori SET nome = ?, cognome = ?, nazionalita = ?, datanascita = ? WHERE idautore = ?";
-
+    public void editAutore(Connection conn, int idAutoreOld, int idAutoreNew, String Nome, String Cognome, String Nazionalita, Date DatadiNascita) {
+        
+        String updateQuery = "UPDATE autori SET nome = ?, cognome = ?, nazionalita = ?, datanascita = ?";
+        if (idAutoreNew != -1) {
+            updateQuery += ", idautore = ?"; 
+        }
+        updateQuery += "  WHERE idautore = ?";
         try (PreparedStatement pst = conn.prepareStatement(updateQuery)) {
             pst.setString(1, Nome);
             pst.setString(2, Cognome);
             pst.setString(3, Nazionalita);
             pst.setDate(4, new java.sql.Date(DatadiNascita.getTime()));
-            pst.setInt(5, idAutore);
+            if (idAutoreNew != -1) {
+                pst.setInt(5, idAutoreNew);
+                pst.setInt(6, idAutoreOld);
+            } else {
+                pst.setInt(5, idAutoreOld);
+            }
+            
 
             pst.executeUpdate();
 
