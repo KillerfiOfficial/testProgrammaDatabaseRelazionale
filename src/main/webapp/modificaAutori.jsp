@@ -56,11 +56,14 @@
             Autori autori = autoriDAODB.trovaPerIdAutore(idAutore);
         %>
 
-        <h1>Pagina per modificare l'autore <%= autori.getNome()%></h1>
+        <h1>Pagina per modificare l'autore #<%= autori.getIdAutore()%></h1>
 
         <form method="post" action="EditServletAutori">
-            <input type="hidden" id="autoreId" name="autoreId" value="<%= autori.getIdAutore()%>">
-
+            <input type="hidden" id="autoreIdOld" name="autoreIdOld" value="<%= autori.getIdAutore()%>">
+            
+            <label for="newId">Nuovo Id:</label>
+            <input type="text" id="autoreIdNew" name="autoreIdNew" value=""><br>
+            
             <label for="newNome">Nuovo Nome:</label>
             <input type="text" id="newNome" name="newNome" value="<%= autori.getNome()%>" required><br>
 
