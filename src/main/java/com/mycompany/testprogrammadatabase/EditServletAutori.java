@@ -31,7 +31,6 @@ public class EditServletAutori extends HttpServlet {
             throws ServletException, IOException {
 
         try (Connection conn = ConnectDB.getConnection()) {
-            conn.setAutoCommit(false); 
 
             String idOld = request.getParameter("autoreIdOld");
             String idNew = request.getParameter("autoreIdNew");
@@ -61,8 +60,6 @@ public class EditServletAutori extends HttpServlet {
             logger.info("Nuovo Cognome: " + cognome);
             logger.info("Nuova Nazionalità: " + nazionalita);
             logger.info("Nuova Data di Nascita: " + dataNascita);
-
-            conn.commit(); 
 
             logger.info("Modifica dell'autore completata con successo!");
 
